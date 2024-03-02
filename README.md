@@ -1,33 +1,41 @@
+<h2 align="center">pratikkale.in</h2>
+
+![Hero](public/hero.png)
+
+  <p align="center">
+    My personal portfolio and blog <br>
+     <a href="http://pratikkale.in"><strong>View Demo »</strong></a>
+    </p>
+
+## Built With
+
+![Next.js](https://img.shields.io/badge/nextjs-000000?style=for-the-badge&logo=nextdotjs)
+![TailwindCSS](https://img.shields.io/badge/tailwindcss-000000?style=for-the-badge&logo=tailwindcss)
+![TypeScript](https://img.shields.io/badge/typescript-000000?style=for-the-badge&logo=typescript)
+![Vercel](https://img.shields.io/badge/vercel-000000?style=for-the-badge&logo=vercel)
+![graphql](https://img.shields.io/badge/graphql-000000?style=for-the-badge&logo=graphql)
+![hashnode](https://img.shields.io/badge/hashnode-000000?style=for-the-badge&logo=hashnode)
+<a href="https://hashnode-next.vercel.app/">![hasnnode-next](https://img.shields.io/badge/hashnode_next-000000?style=for-the-badge&logo=vercel)</a>
+
 ## Getting Started
 
 ```console
-git clone
+git clone https://github.com/pratikkalein/pratikkale.in.git
+cd pratikkale.in
+```
+
+To set the correct version of PNPM, run nvm use from the root. There is a .nvmrc file that controls the correct node version.
+
+```console
+pnpm install
+npm run dev
 ```
 
 ## Environment Variables
 
 [.env.example](.env.example) contains all the environment variables you need to run a copy of hashnode-next for your headless blog. You can simply copy this file and rename it to `.env.local` to get started.
 
-## Contributing
-
-Please read through our [contributing guide](.github/CONTRIBUTING.md) before starting any work.
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/my-amazing-feature`)
-3. Commit your Changes (`git commit -am 'Add some my-amazing-feature'`)
-4. Push to the Branch (`git push origin feature/my-amazing-feature`)
-5. Open a Pull Request
-
-## Authors
-
-<a href="https://github.com/alexkates/hashnode-next/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=alexkates/hashnode-next" />
-</a>
-
-## Stats
-
-![Alt](https://repobeats.axiom.co/api/embed/31e702ad0bc3e2c1d5fa3bf57d06845b2a052336.svg "Repobeats analytics image")
-
 ## License
 
-Distributed under the MIT License. See the [license](LICENSE.md) for more information.
+Distributed under the MIT License. See the [license](LICENSE.md) for more information. <br>
+Built using [hashnode-next.](https://hashnode-next.vercel.app/)

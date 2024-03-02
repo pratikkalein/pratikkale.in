@@ -1,30 +1,32 @@
-"use client";
-
 import ImageSkeleton from "@/components/image-skeleton";
 import { cn, fadeIn } from "@/lib/utils";
 import axios from "axios";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import cloudinaryUrl from "./cloudinary";
 
-function Gallery() {
-  const [images, setImages] = useState([]);
-  const [loading, setLoading] = useState(true);
+let loading = true;
+async function getData() {
+  const apiKey = process.env.CLOUDINARY_API_KEY;
+  const apiSecret = process.env.CLOUDINARY_API_SECRET;
+  const response = await axios.get(cloudinaryUrl, {
+    params: {
+      max_results: 30,
+    },
+    auth: {
+      username: apiKey,
+      password: apiSecret,
+    },
+  });
+  if (!response == 200) {
+    throw new Error(response.statusText);
+  }
+  return response.data;
+}
 
-  const fetchImages = async () => {
-    try {
-      setLoading(true);
-      const response = await axios.get("/api/images");
-      setImages(response.data.resources);
-      setLoading(false);
-    } catch (error) {
-      console.error("Error fetching images:", error);
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    fetchImages();
-  }, []);
+async function Gallery() {
+  const data = await getData();
+  const images = data.resources;
+  loading = false;
 
   if (loading) {
     return <ImageSkeleton />;

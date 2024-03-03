@@ -10,7 +10,7 @@ import "./globals.css";
 export async function generateMetadata() {
   const title = "Pratik Kale | pratikkale.in";
   const description = "Hi there 👋, I am Pratik Kale Developer and Community Evangelist Public Speaker & Organizer @ GDG Cloud Pune";
-  const images = "https://raw.githubusercontent.com/prtkdev/prtkdev/main/namecard.png";
+  const images = "https://raw.githubusercontent.com/pratikkalein/pratikkalein/main/meta.png";
   const url = "https://pratikkale.in";
 
   const metadata: Metadata = {

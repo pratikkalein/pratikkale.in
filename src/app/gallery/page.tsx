@@ -2,12 +2,45 @@ import ImageSkeleton from "@/components/image-skeleton";
 import { cn, fadeIn } from "@/lib/utils";
 import axios from "axios";
 import Image from "next/image";
+import { Metadata } from "next/types";
 import cloudinaryUrl from "./cloudinary";
+
+export async function generateMetadata() {
+  const title = "Pratik Kale | Gallery";
+  const description =
+    "I'm passionate about photography, capturing everything from the dynamic energy of street life to the tranquil beauty of landscapes.";
+  const images = "https://raw.githubusercontent.com/pratikkalein/pratikkalein/main/meta.png";
+  const url = "https://pratikkale.in/gallery";
+
+  const metadata: Metadata = {
+    metadataBase: new URL("https://pratikkale.in/gallery"),
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      type: "website",
+      siteName: title,
+      images,
+      url,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images,
+      creator: "@pratikkalein",
+      site: "@pratikkalein",
+    },
+  };
+
+  return metadata;
+}
 
 let loading = true;
 async function getData() {
-  const apiKey = process.env.CLOUDINARY_API_KEY;
-  const apiSecret = process.env.CLOUDINARY_API_SECRET;
+  const apiKey = process.env.CLOUDINARY_API_KEY ?? "";
+  const apiSecret = process.env.CLOUDINARY_API_SECRET ?? "";
   const response = await axios.get(cloudinaryUrl, {
     params: {
       max_results: 30,
@@ -17,7 +50,7 @@ async function getData() {
       password: apiSecret,
     },
   });
-  if (!response == 200) {
+  if (response.status !== 200) {
     throw new Error(response.statusText);
   }
   return response.data;
@@ -47,7 +80,7 @@ async function Gallery() {
         </p>
 
         <div className={cn(fadeIn, "animation-delay-600 responsive-columns")}>
-          {images.map((image, index) => (
+          {images.map((image: any, index: number) => (
             <div key={index} className="mb-4 break-inside-avoid">
               <Image src={image.url} alt={image.public_id} width={400} height={100} />
             </div>

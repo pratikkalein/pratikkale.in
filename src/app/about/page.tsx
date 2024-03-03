@@ -3,7 +3,40 @@ import ParagraphSkeleton from "@/components/paragraph-skeleton";
 import Profile from "@/components/profile";
 import { cn, fadeIn } from "@/lib/utils";
 import Image from "next/image";
+import { Metadata } from "next/types";
 import { Suspense } from "react";
+
+export async function generateMetadata() {
+  const title = "Pratik Kale | About";
+  const description =
+    "Pratik is a Developer and Cloud enthusiast. He is the organizer of GDG Cloud Pune. He was also the GDSC Lead for the year 2021-2022. Pratik enjoys writing technical blogs and articles to share his insights with the community. He is often found discussing Cloud Native technologies, DevOps, and Web. When he's not coding, he enjoys bike rides and photography.";
+  const images = "https://raw.githubusercontent.com/pratikkalein/pratikkalein/main/meta.png";
+  const url = "https://pratikkale.in/about";
+
+  const metadata: Metadata = {
+    metadataBase: new URL("https://pratikkale.in/about"),
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      type: "website",
+      siteName: title,
+      images,
+      url,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images,
+      creator: "@pratikkalein",
+      site: "@pratikkalein",
+    },
+  };
+
+  return metadata;
+}
 
 export default async function Home() {
   const images = [
@@ -28,7 +61,7 @@ export default async function Home() {
       alt: "React",
     },
     {
-      src: "https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg",
+      src: "https://raw.githubusercontent.com/devicons/devicon/master/icons/tailwindcss/tailwindcss-original.svg",
       alt: "Tailwind CSS",
     },
     {

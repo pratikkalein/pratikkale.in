@@ -1,0 +1,12 @@
+query Publication($host: String!, $slug: String!) {
+  publication(host: $host) {
+    isTeam
+    title
+    staticPage(slug: $slug) {
+      title
+      content {
+        markdown
+      }
+    }
+  }
+}

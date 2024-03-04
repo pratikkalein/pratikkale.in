@@ -47,9 +47,8 @@ type PublicationData = {
 };
 
 export default async function Talks() {
-  const host = process.env.HASHNODE_HOST || ""; // Ensure host is defined
   const slug = "talks";
-  const data = (await fetchPublication(host, slug)) as PublicationData;
+  const data = (await fetchPublication(slug)) as PublicationData;
 
   return (
     <main>

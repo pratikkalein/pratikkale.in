@@ -5,7 +5,7 @@ import { ModeToggle } from "./mode-toggle";
 function Header() {
   return (
     <div>
-      <header className="mb-4 flex items-center justify-between">
+      <header className="my-2 flex items-center justify-between">
         <HeaderNav />
         <ModeToggle />
       </header>

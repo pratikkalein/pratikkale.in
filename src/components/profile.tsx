@@ -1,6 +1,6 @@
 import Bio from "@/components/bio";
 import Link from "next/link";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaDev, FaGithub, FaLinkedin } from "react-icons/fa";
 import { FaInstagram, FaXTwitter } from "react-icons/fa6";
 import { SiSessionize } from "react-icons/si";
 import Profilephoto from "./profile-photo";
@@ -12,6 +12,7 @@ export default async function profile() {
     { href: "https://x.com/pratikkalein", icon: <FaXTwitter className="h-6 w-6" /> },
     { href: "https://instagram.com/pratikkalein", icon: <FaInstagram className="h-6 w-6" /> },
     { href: "https://sessionize.com/pratik/", icon: <SiSessionize className="h-6 w-6" /> },
+    { href: "https://dev.to/pratik_kale/", icon: <FaDev className="h-6 w-6" /> },
   ];
 
   return (
